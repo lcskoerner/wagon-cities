@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import City from '../containers/city';
-import setCities from '../actions';
+import { setCities } from '../actions';
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
@@ -20,7 +20,7 @@ class CityList extends Component {
   render() {
     return (
       <ul className="cities">
-        {this.props.cities.map(city => <City city={city} />)}
+        {this.props.cities.map(city => <City city={city} key={city.name} />)}
       </ul>
     );
   }
